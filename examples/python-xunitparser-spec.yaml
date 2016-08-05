@@ -1,0 +1,48 @@
+---
+language: "python"
+# name will be generated automatically
+#name: python-my-actual-name
+modulename: xunitparser
+version: 1.3.3
+release: 1
+summary: Read JUnit/XUnit XML files and map them to Python objects
+license: MIT
+# URL will be a pypi link
+sources:
+  - http://git.p.engu.in/laurentb/xunitparser/snapshot/%{modulename}-%{version}.tar.xz
+
+patches:
+  - "%{modulename}-py3-tests.patch"
+
+#architechtures: all # No BuildArch entry added
+architechtures:
+  - noarch
+#architechtures:
+#  - x86_64
+#  - ppc64
+
+description: |
+  xunitparser reads a JUnit/XUnit XML file and maps it to Python objects.
+  It tries to use the objects available in the standard "unittest" module.
+
+python-versions:
+  - 2
+  - 3
+
+python-setup: setuptools
+python-check: setup_py_test
+#python-check: nose
+#python-check: pytest
+#python-check: "setup.py test" - custom
+changelog-from-git: true
+
+#egginfoname: %{modname}
+files:
+  license:
+    - LICENSE
+  docs:
+    - AUTHORS
+    - README
+  # Custom files
+  # other:
+  #   - "*.so"
